@@ -158,6 +158,8 @@ func NewNFQueue(queueId uint16, maxPacketsInQueue uint32, packetSize uint32) (*N
 		return nil, fmt.Errorf("Unable to get queue file-descriptor. %v\n", err)
 	}
 
+	fmt.Printf("NFQ_FD: %v", nfq.fd)
+	
 	go nfq.run()
 
 	return &nfq, nil
